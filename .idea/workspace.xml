@@ -10,7 +10,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d01a241-abdf-4143-8357-d78f067d5f45" name="Default Changelist" comment="" />
+    <list default="true" id="8d01a241-abdf-4143-8357-d78f067d5f45" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../aula14/src/exercicio1/Fornecedor.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../aula14/src/exercicio1/Produto.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../aula14/src/exercicio1/main1.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../aula15/src/exercicio_projetoIntegrador/Livro.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../aula15/src/exercicio_projetoIntegrador/Sistema.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../aula15/src/exercicio_projetoIntegrador/main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/digitalhouse/thais/Curso.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/digitalhouse/thais/Curso.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,7 +34,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1l7aMBb6kDRAYEeoYvTO9YWszrL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />

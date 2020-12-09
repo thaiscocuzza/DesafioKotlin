@@ -15,7 +15,7 @@ data class Curso(val nome: String, val codigoDoCurso: Int, val limiteDeALunos: I
         }
     }
 
-    fun excluirAlunoDoCurso(aluno: Aluno){
+    fun excluirAluno(aluno: Aluno){
         listaDeAlunosMatriculados.remove(aluno)
         println("Aluno removido da lista com sucesso!")
     }
