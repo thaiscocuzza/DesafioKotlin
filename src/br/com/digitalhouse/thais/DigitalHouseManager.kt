@@ -1,84 +1,113 @@
 package br.com.digitalhouse.thais
 
-open class DigitalHouseManager (var listaDeAluno: Aluno, var listaDeProfessor: Professor, var listaDeCurso: Curso, var listaDeMatricula: Matricula) {
+import java.util.*
 
-    open fun cadastrarCurso(nome: String, codigoDoCurso: Int, limiteDeAluno: Int){
+class DigitalHouseManager(var listaDeAluno: MutableList<Aluno> = mutableListOf<Aluno>(), var listaDeProfessor: MutableList<Professor> = mutableListOf<Professor>(), var listaDeCurso: MutableList<Curso> = mutableListOf<Curso>(), var listaDeMatricula: MutableList<Matricula> = mutableListOf<Matricula>()) {
 
-        val novoCurso= cadastrarCurso(nome,codigoDoCurso,limiteDeAluno)
+
+    fun cadastrarCurso(nome: String, codigoDoCurso: Int, limiteDeAluno: Int) {
+
+        val novoCurso = Curso(nome, codigoDoCurso, limiteDeAluno, )
         listaDeCurso.add(novoCurso)
     }
 
-    fun excluirCurso(codigoDoCurso: Int){
-
-        if (codigoDoCurso.equals(listaDeCurso)){
-            listaDeCurso.remove(codigoDoCurso)
-            println("Curso removido com sucesso!")
-        }
-        else{
-            println("Curso não encontrado")
+    fun excluirCurso(codigoDoCurso: Int) {
+        for (curso in listaDeCurso) {
+            if (codigoDoCurso == codigoDoCurso) {
+                listaDeCurso.remove(curso)
+                println("Curso removido com sucesso!")
+            } else {
+                println("Curso não encontrado")
+            }
         }
     }
 
-    private fun cadastrarProfessorAdjunto(nome: String, sobrenome: String, codigoDoProfessorAdjunto: Int, horasDeMonitoria: Int){
+    fun cadastrarProfessorAdjunto(nome: String, sobrenome: String, codigoDoProfessorAdjunto: Int, horasDeMonitoria: Int) {
 
-        val novoProfessorAdjunto = cadastrarProfessorAdjunto(nome,sobrenome,codigoDoProfessorAdjunto,horasDeMonitoria)
+        val novoProfessorAdjunto = ProfessorAdjunto(horasDeMonitoria, nome, sobrenome, tempoDeCasa = 0, codigoDoProfessorAdjunto)
         listaDeProfessor.add(novoProfessorAdjunto)
         println("Professor Adjunto cadastrado com sucesso!")
     }
 
-    fun cadastrarProfessorTitular(nome: String, sobrenome: String, codigoDoProfessorTitular: Int, especialidade: String){
+    fun cadastrarProfessorTitular(nome: String, sobrenome: String, codigoDoProfessorTitular: Int, especialidade: String) {
 
-        val novoProfessorTitular = cadastrarProfessorTitular(nome, sobrenome,codigoDoProfessorTitular, especialidade)
+        val novoProfessorTitular = ProfessorTitular(especialidade, nome, sobrenome, tempoDeCasa = 0, codigoDoProfessorTitular)
         listaDeProfessor.add(novoProfessorTitular)
-        println("Professor Adjunto cadastrado com sucesso!")
+        println("Professor Titular cadastrado com sucesso!")
     }
 
-    fun excluirProfessor(codigoDoProfessor: Int){
-        if (codigoDoProfessor.equals(listaDeProfessor)){
-            listaDeCurso.remove(codigoDoProfessor)
-            println("Professor removido com sucesso!")
-        }
-        else{
-            println("Professor não encontrado")
+    fun excluirProfessor(codigoDoProfessor: Int) {
+
+        for (professor in listaDeProfessor) {
+            if (codigoDoProfessor.equals(listaDeProfessor)) {
+                listaDeCurso.remove(professor)
+                println("Professor removido com sucesso!")
+            } else {
+                println("Professor não encontrado")
+            }
         }
     }
 
-     fun matricularAluno(nome: String, sobrenome: String, codigoDeAluno: Int){
+    fun matricularAluno(nome: String, sobrenome: String, codigoDeAluno: Int) {
 
-        val novoAluno = Aluno(nome,sobrenome,codigoDeAluno)
+        val novoAluno = Aluno(nome, sobrenome, codigoDeAluno)
         listaDeAluno.add(novoAluno)
-        println("Aluno matriculado com sucesso!")
+        println("Aluno matrículado com sucesso!")
     }
 
-     fun matricularAlunoAoCurso (codigoDeAluno: Int, codigoDoCurso: Int, nome: String, sobrenome: String){
+    fun matricularAluno(codigoDoCurso: Int,codigoDeAluno: Int) {
 
-         if(codigoDoCurso.equals(listaDeCurso)){
-             if (codigoDeAluno.equals(listaDeAluno)) {
-                 matricularAluno()
-                 listaDeMatricula.add(codigoDeAluno)
-                 adicionarAlunoAoCurso()
-             }
-         }
-         else{
-             println("ERRO: tente novamente")
-         }
+        val aluno = Aluno(nome = " ", sobrenome = "", codigoDeAluno = 0)
+        var alunoEncotrado: Aluno? = null
+        var cursoEncontrado: Curso? = null
+        val dataDaMatricula: Date
+
+        for (aluno in listaDeAluno) {
+            if (aluno.codigoDeAluno == codigoDeAluno) {
+                println("Aluno encontrado!")
+            }
+        }
+        for (curso in listaDeCurso) {
+            if (curso.codigoDoCurso == codigoDoCurso) {
+                println("Curso encontrado!")
+            }
+        }
+        if (alunoEncotrado != null && cursoEncontrado != null) {
+            cursoEncontrado.adicionarAluno(alunoEncotrado)
+        } else {
+            if (cursoEncontrado != null) {
+                listaDeAluno.add(aluno)
+                cursoEncontrado.adicionarAluno(aluno)
+            }
+            println("Matrícula realizada com sucesso!")
+        }
     }
 
-    fun alocarProfessoresAoCurso (codigoDoCurso: Int, codigoDoProfessorTitular: Int, codigoDoProfessorAdjunto: Int) {
+    fun alocarProfessorAoCurso(codigoDoCurso: Int, codigoDoProfessorTitular: Int, codigoDoProfessorAdjunto: Int) {
 
-        if(listaDeProfessor.equals(codigoDoProfessorTitular)){
-            println("Professor encontrado")
+        //val cursoEncontrado: Curso? = null
+        //val professorTitularEncontrado: ProfessorTitular? = null
+        //val professorAdjuntoEncontrado: ProfessorAdjunto? = null
+
+        for (curso in listaDeCurso) {
+            if (curso.codigoDoCurso == codigoDoCurso) {
+                println("Curso encontrado")
+            }
         }
-        else if(listaDeProfessor.equals(codigoDoProfessorAdjunto)) {
-            println("Professor encontrado")
-            //Curso.add(professorTitular, professorAdjunto)
-        }
-        else{
-            println("ERRO: não foi possível encontrar os professores")
+        for (professor in listaDeProfessor) {
+            if (professor.codigoDeProfessor == codigoDoProfessorTitular && professor is ProfessorTitular) {
+                println("Professor encontrado")
+            }
+            if (professor.codigoDeProfessor == codigoDoProfessorAdjunto && professor is ProfessorAdjunto) {
+                println("Professor encontrado")
+            }
+            else{
+
+            }
         }
     }
-
 }
+
 
 
 

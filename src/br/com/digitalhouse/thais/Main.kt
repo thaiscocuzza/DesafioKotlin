@@ -2,25 +2,30 @@ package br.com.digitalhouse.thais
 
 fun main() {
 
-    val novoProfessorTitular1 = ProfessorTitular("IOS","Jose","Professor", 1,10)
-    val novoProfessorTitular2 = ProfessorTitular("ANDROID","João","Professor", 1,11)
-    val novoProfessorAdjunto1 = ProfessorAdjunto(5,"Flavia","Professor", 0,20)
-    val novoProfessorAdjunto2 = ProfessorAdjunto(6,"Ana","Professor", 0,21)
+    val secretaria = DigitalHouseManager()
 
-    cadastrarProfessorTitular(novoProfessorTitular1)
-    cadastrarProfessorTitular(novoProfessorTitular2)
-    cadastrarProfessorAdjunto(novoProfessorAdjunto1)
-    cadastrarProfessorAdjunto(novoProfessorAdjunto2)
+    secretaria.cadastrarProfessorTitular("Tiago","Santos",10,"Android")
+    secretaria.cadastrarProfessorTitular("Aline","Costa",11,"IOS")
+    secretaria.cadastrarProfessorAdjunto("Paulo","Rocha",20,3)
+    secretaria.cadastrarProfessorAdjunto("Ana","Souza",21,2)
 
-    val novoCurso1 =cadastrarCurso("Full Stack",20001, novoProfessorTitular1, novoProfessorAdjunto1,3)
-    val novoCurso2 =cadastrarCurso("Android",20002,novoProfessorTitular2,novoProfessorAdjunto2,2)
+    secretaria.cadastrarCurso("Full Stack",20001,3)
+    secretaria.cadastrarCurso("Android", 20002,2)
 
-    alocarProfessoresAoCurso(novoCurso1)
-    alocarProfessoresAoCurso(novoCurso2)
+    secretaria.alocarProfessorAoCurso(20001,10,20)
+    secretaria.alocarProfessorAoCurso(20001,11,21)
 
-    val aluno1 = Aluno("Thais","Cocuzza",1001)
-    val aluno2 = Aluno("Vitor","Horvath",1002)
+    secretaria.matricularAluno("Thais","Cocuzza",501)
+    secretaria.matricularAluno("Vitor","Horvath", 502)
+    secretaria.matricularAluno("Isis","Camargo",503)
+    secretaria.matricularAluno("Angelo", "Gomes",504)
+    secretaria.matricularAluno("Fabio","Freitas",505)
 
+    secretaria.matricularAluno(20001,501)
+    secretaria.matricularAluno(20001,502)
+    secretaria.matricularAluno(20002,503)
+    secretaria.matricularAluno(20002,504)
+    secretaria.matricularAluno(20002,505)
 
 
 }
